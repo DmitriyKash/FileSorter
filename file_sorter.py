@@ -19,6 +19,15 @@ dir_suff_dict = {"Images": ['.jpg', '.jpeg', '.png', '.gif', '.tiff', '.ico', '.
 
 
 def normalize(name: str) -> str:
+    """
+    Преобразует строку, удаляя специальные символы и заменяя кириллические символы на латинские.
+
+    Аргументы:
+    name: Строка, которую необходимо нормализовать.
+
+    Возвращает:
+    Нормализованную строку.
+    """
     CYRILLIC_SYMBOLS = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
     TRANSLATION = (
         "a", "b", "v", "g", "d", "e", "e", "j", "z", "i", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u",
@@ -34,6 +43,12 @@ def normalize(name: str) -> str:
 
 
 def sort_func(path_dir):
+    """
+    Организует файлы в заданной директории, сортируя их по типам и переименовывая.
+
+    Аргументы:
+    path_dir: Путь к директории, которую необходимо упорядочить.
+    """
     cur_dir = Path(path_dir)
     dir_path = []
 
@@ -67,6 +82,12 @@ def sort_func(path_dir):
 
 
 def update_log(message):
+    """
+    Обновляет журнал в графическом интерфейсе, добавляя новое сообщение.
+
+    Аргументы:
+    message: Сообщение для добавления в журнал.
+    """
     text_log.config(state='normal')
     text_log.insert(tk.END, message + "\n")
     text_log.config(state='disabled')
@@ -74,6 +95,12 @@ def update_log(message):
 
 
 def start_sorting(path):
+    """
+    Начинает процесс сортировки файлов в выбранной директории.
+
+    Аргументы:
+    path: Путь к директории для сортировки.
+    """
     update_log("Сортируем файли...")
     if not Path(path).exists():
         messagebox.showerror("Ошибка", "Директории не существует")
@@ -84,6 +111,9 @@ def start_sorting(path):
 
 
 def browse_folder():
+    """
+    Открывает диалоговое окно для выбора директории и инициирует сортировку файлов в ней.
+    """
     folder_selected = filedialog.askdirectory()
     if folder_selected:
         label_info.config(text=f"Выбранная директория: {folder_selected}")
