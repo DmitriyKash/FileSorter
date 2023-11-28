@@ -33,7 +33,7 @@ Run file_sorter.py.
 
 ## Contributing
 
--Contributions are welcome! If you have a suggestion or an improvement, please feel free to fork the repository and create a pull request.
+- Contributions are welcome! If you have a suggestion or an improvement, please feel free to fork the repository and create a pull request.
 
 ## License
 
